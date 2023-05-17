@@ -10,9 +10,9 @@ contract AutoNFT is ERC721, ERC721Enumerable, ERC721URIStorage {
     address[] private customerAddresses;
 
     struct Product {
-        string name;
-        string imagePath;
-        uint256 price;
+      string name;
+      string imagePath;
+      uint256 price;
     }
 
     Product[] public products;
@@ -22,76 +22,67 @@ contract AutoNFT is ERC721, ERC721Enumerable, ERC721URIStorage {
     mapping(address => bool) public userMinted;
 
 
-    constructor() ERC721("Membership", "MMS") {
-        products.push(Product("Gucci Bag", "gucci.jpg", 30000000000000000));
-        products.push(Product("Zara Bag", "zara.jpg", 40000000000000000));
-        products.push(Product("Nike Shoe", "nike.jpg", 50000000000000000));
+    constructor() ERC721("Loyalty", "LTY") {
+      products.push(Product("Gucci Bag", "gucci.jpg", 30000000000000000));
+      products.push(Product("Zara Bag", "zara.jpg", 40000000000000000));
+      products.push(Product("Nike Shoe", "nike.jpg", 50000000000000000));
     }
 
     function _baseURI() internal pure override returns (string memory) {
-        return
-            "https://ipfs.io/ipfs/QmdfZ1zpmKEdS3QjbYzLULhm1H1KAkDe8C5NPh9ZXu8r61/";
+      return "https://ipfs.io/ipfs/QmdfZ1zpmKEdS3QjbYzLULhm1H1KAkDe8C5NPh9ZXu8r61/";
     }
 
     // The following functions are overrides required by Solidity.
 
     function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
-        super._burn(tokenId);
+      super._burn(tokenId);
     }
 
     function tokenURI(uint256 tokenId) public view override(ERC721, ERC721URIStorage) returns (string memory) {
-        return super.tokenURI(tokenId);
+      return super.tokenURI(tokenId);
     }
 
-    function supportsInterface(bytes4 interfaceId)
-        public
-        view
-        override(ERC721, ERC721Enumerable)
-        returns (bool)
-        {
-            return super.supportsInterface(interfaceId);
-        }
+    function supportsInterface(bytes4 interfaceId) public view override(ERC721, ERC721Enumerable) returns (bool) {
+      return super.supportsInterface(interfaceId);
+    }
 
-     function _beforeTokenTransfer(address from, address to, uint256 tokenId, uint256 batchSize)
-        internal
-        override(ERC721, ERC721Enumerable)
-        {
-            super._beforeTokenTransfer(from, to, tokenId, batchSize);
-        }
+    function _beforeTokenTransfer(address from, address to, uint256 tokenId, uint256 batchSize) internal override(ERC721, ERC721Enumerable) {
+      super._beforeTokenTransfer(from, to, tokenId, batchSize);
+    }
 
     function buyProduct(uint256 _productIndex) public payable {
 
-        Product memory product = products[_productIndex];
+      Product memory product = products[_productIndex];
 
-        require(product.price == msg.value, "Incorrect product amount");
+      require(product.price == msg.value, "Incorrect product amount");
 
-        if (!userMinted[msg.sender]) {
+      if (!userMinted[msg.sender]) {
 
-            uint256 tokenId = 0;
-            string memory uri = "nft1.json";
-            _safeMint(msg.sender, tokenId);
-            _setTokenURI(tokenId, uri);
-            userMinted[msg.sender] = true;
-        }
+        uint256 tokenId = 0;
+        string memory uri = "nft1.json";
+        _safeMint(msg.sender, tokenId);
+        _setTokenURI(tokenId, uri);
+        userMinted[msg.sender] = true;
+      }
 
 
-        purchaseCounts[msg.sender] ++;
+      purchaseCounts[msg.sender] ++;
 
-        addCustomerAddress(msg.sender);
+      addCustomerAddress(msg.sender);
     }
 
     function getProducts() public view returns(Product[] memory) {
-        return products;
+      return products;
     }
 
     function getTokenId() public view returns (uint256) {
 
-        require(userMinted[msg.sender], "User has not NFT");
+      require(userMinted[msg.sender], "User has not NFT");
 
-        // User will always have 1 token.
-        uint256 tokenIndex = 0;
+      // User will always have 1 token.
+      uint256 tokenIndex = 0;
 
-        return tokenOfOwnerByIndex(msg.sender, tokenIndex);
+      return tokenOfOwnerByIndex(msg.sender, tokenIndex);
 
     }
 
@@ -129,19 +120,19 @@ contract AutoNFT is ERC721, ERC721Enumerable, ERC721URIStorage {
       }
     }
 
-  function addCustomerAddress(address _address) private {
-    bool exists = false;
-    
-    for (uint i = 0; i < customerAddresses.length; i++) {
-      if (customerAddresses[i] == _address) {
-        exists = true;
-        break;
+    function addCustomerAddress(address _address) private {
+      bool exists = false;
+
+      for (uint i = 0; i < customerAddresses.length; i++) {
+        if (customerAddresses[i] == _address) {
+          exists = true;
+          break;
+        }
+      }
+
+      if (!exists) {
+        customerAddresses.push(_address);
       }
     }
-
-    if (!exists) {
-      customerAddresses.push(_address);
-    }
-  }
 
 }

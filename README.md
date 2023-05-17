@@ -1,51 +1,42 @@
-# stackshift
-Unlock Your Web3 Potential with the Celo StackShift Program.
+## Introduction
 
-## What is it?
+Using Oracle services like Chainlink seems to be the go-to platform when one is faced with the task of doing some automation 
+and running CRON jobs on one's dApp. 
 
-The Celo StackShift program is a unique initiative aimed at empowering developers to learn, grow, earn and innovate. The program is designed to help developers take their skills to the next level and build innovative solutions for the Celo ecosystem.
+The challenge comes when your preferred blockchain in not supported by Chainlink or 
+some of the alternative oracle platforms, hence looking at how to get going with OpenZepplin Defender.
+OpenZepplin Defender handles automation and much more.
 
-This eight-week program is designed to help developers become familiar with the Celo stack, including its infrastructure, tools, and libraries. Participants will work on projects that will be used by real users and contribute to the Celo ecosystem, making a meaningful impact on the platform.
-
-## Why join Stackshift?
-- Gain hands-on experience building on the Celo blockchain
-- Be part of a vibrant community of developers and contribute to the growth of the Celo ecosystem
-- Receive bounties (100 CUSD) weekly.
-- Top three submissions get rewarded weekly.
-- Learn about web3 development on Celo and stay ahead of the curve in the industry
-- Networking opportunities and job placement assistance upon completion of the program
-- Mentorship from industry experts to provide technical advice and career development
-
-## Contributing to Stackshift
-
-### General tips
-- Before making the PR, run the code by yourself first to avoid any obvious errors and to make sure it works as expected.
-- Provide pictures or screenshots to illustrate complicated processes where needed.
-- Do not copy and paste existing content. Plagiarism is a serious issue and will not be tolerated. If the tutorial is inspired by some existing content (for example forking an Ethereum tutorial to convert it for use on Avalanche), reference it and link to it.
-Add potential errors and troubleshooting. Of course, the tutorial shouldn't list all possible errors but make an effort to catch the important or most common ones.
-- Include any walkthrough videos or video content in the PR by uploading it to Google Drive if needed.
+This project demonstrates how to build an automated Dynamic NFT system using Celo Composer and the OpenZeppelin Defender.
 
 
-## Submitting your weekly task
+## Prerequisites
 
-### Submission Creation Process
-- Create and Move the [Trello Card](https://trello.com/invite/b/3WDYSUka/ATTI84bc9379df8a44f59c997c94c38155aeEBC57A9B/stackshift-submissions) for your tutorial from Todo to In progress
-- Once you have completed your submission, move your Trello Card from In progress to Review and please wait as we review your tutorial and address any comments from your reviewer.
-- Only one submission will be accepted per week. I.E submitting a task for week3 while still in week2 will not be accepted and the submitted task will be disallowed.
-- Unfinished tasks from the previous week can be rolled over to the next week but must be completed before snapshot for the month. Any submission for month-one after snapshot of month-one will not be compensated except when explicitly stated by the Devrel team. 
+To successfully follow along in this tutorial, you need basic knowledge of the following:
+HTML, CSS, and React
+Blockchain, Solidity, and Hardhat
 
+## Requirements​
 
-### How to Create a PR
-- Fork the https://github.com/celo-org/stackshift.
-- Create a branch name with syntax - stackshift/task-title
-- Create a PR from your branch to main branch.
+- [Celo Composer](https://github.com/celo-org/celo-composer) - For React app and Hardhat setup
+- [Metamask](https://metamask.io/) - For managing our wallet.
+- [Alfajores Testnet Account](https://developers.celo.org/3-simple-steps-to-connect-your-metamask-wallet-to-celo-732d4a139587) - Required to connect to the dApp and make test transactions.
+- [Node.js](https://nodejs.org/en/) - From V12. or higher
 
-### Best Practices
-- Before creating a PR, make sure to pull the code from main branch - git pull upstream main.
-- To use prettier in VSCode, you can press Cmd/Ctrl + shift + p and search for Format Document with and select Prettier - Code formatter.
-- Before creating a PR, make sure your code is well formatted and there are no errors in the console.
+## Setup
 
-### Reward schedule
-- Rewards are made on the basis of completed tasks.
-- A snapshot will be taken of the number of completed tasks on the Trello board at the end of the month and payments will be made accodingly (100 cUSD per submission representing each week. I.E if a participant completed all four tasks for the month, they get a bulk payment of 400 cUSD)
-- The recipient of the most helpful participant will be decided by all participants and the reward gets added to his/her/their payments.
+```js
+npx @celo/celo-composer@latest create
+```
+
+## Installation
+
+```js
+yarn install
+```
+
+## Usage
+
+```js
+npm run dev
+```
