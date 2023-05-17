@@ -18,7 +18,7 @@ export default function Home () {
     description: string;
   }>()
 
-  const buyProductHandler = async (index, price) => {
+  const buyProductHandler = async (index: number, price: number) => {
 
     if (!address) return alert('Connect your Celo wallet')
 
