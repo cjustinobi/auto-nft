@@ -66,7 +66,7 @@ export default function Home () {
             <div className="bg-white rounded-lg shadow-lg p-4">
               <Image
                 src={require(`../assets/img/${product.imagePath}`)}
-                width="200px"
+                width="200"
                 alt="Product image"
               />
               <h2 className="font-bold mb-2">{product.name}</h2>
