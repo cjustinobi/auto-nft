@@ -7,8 +7,16 @@ export default function Home () {
 
   const { address } = useAccount()
 
-  const [products, setProducts] = useState(undefined)
-  const [NFT, setNFT] = useState(undefined)
+  const [products, setProducts] = useState<{
+    name: string;
+    imagePath: string;
+    price: number;
+  }[]>()
+  const [NFT, setNFT] = useState<{
+    name: string;
+    image: string;
+    description: string;
+  }>()
 
   const buyProductHandler = async (index, price) => {
 

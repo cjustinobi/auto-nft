@@ -1,7 +1,7 @@
 import { providers, Contract } from 'ethers'
 import axios  from 'axios'
 import { priceToWei } from './helpers'
-import JustinNFT from '../../hardhat/artifacts/contracts/AutoNFT.sol/AutoNFT.json'
+import JustinNFT from '../AutoNFT.json'
 
 export const contractAddress = '0xB711A451516ED7cC4427f8D8a94093aEC62C60c7'
 
